@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+<div id="container">
+	<form action="/" method="POST">
+		<h1 id="listHeader">To-Do List 
+			
+				<i class="fa fa-plus"></i>
+			
+		</h1>
+		<input id="newTask" type="text" name="ntask[task]" placeholder="Add Task" required/>
+	</form>
+	<ul>
+		<% tasks.forEach(function(task){ %>
+			<li> 
+			<form action="/<%=task._id%>?_method=DELETE" method="POST">
+				<span>X</span><%=task.task%></li>
+			</form>
+		<% }); %>
+	</ul>
+</div>
+
+<% include partials/footer %>
